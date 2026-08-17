@@ -7,7 +7,6 @@ nation_populations = {
     "New Zealand": 5361300,
     "UK": 70011675
 }
-nation_populations_total = sum(nation_populations.values())
 
 # projections data w/ df_projections
 projections = {
@@ -16,7 +15,6 @@ projections = {
     "New Zealand": -1,
     "UK": -1
 }
-projections_total = -1
 
 df_projections = pd.DataFrame(columns=
     [
@@ -24,8 +22,7 @@ df_projections = pd.DataFrame(columns=
         "Canada",
         "Australia",
         "New Zealand",
-        "UK",
-        "total_population"
+        "UK"
     ]
 ).astype(
     {
@@ -33,8 +30,7 @@ df_projections = pd.DataFrame(columns=
         "Canada": "int64",
         "Australia": "int64",
         "New Zealand": "int64",
-        "UK": "int64",
-        "total_population": "int64"
+        "UK": "int64"
     }
 )
 
@@ -52,7 +48,7 @@ gen_counter = 0
 while not all_reached_300million():
 
     # CALCULATE
-    if projections_total == -1:
+    if gen_counter == 0:
 
         # gen (init)
         gen_counter = 1
@@ -60,9 +56,6 @@ while not all_reached_300million():
         # projections (init)
         for projection in projections:
             projections[projection] = nation_populations[projection]
-
-        # projections total (init)
-        projections_total = nation_populations_total
 
     else:
 
@@ -74,12 +67,19 @@ while not all_reached_300million():
             if projections[projection] < 300000000:
                 projections[projection] = (projections[projection] / 2) * 3
 
-        # projections total
-        projections_total = sum(projections.values())
-
     # PRINT
     print(f"====> canzuk_nations(gen{gen_counter})")
     for projection in projections:
         print(f"{'✔ ' if projections[projection] >= 300000000 else '- '} {round(projections[projection]):,} in {projection}")
 
     # ...and update df_projections
+    df_projections.loc[len(df_projections)] = [
+        gen_counter,
+        round(projections["Canada"]),
+        round(projections["Australia"]),
+        round(projections["New Zealand"]),
+        round(projections["UK"])
+    ]
+
+print("") # lul
+df_projections.to_csv("dataset/canzuk-to-300-million.csv", index=False)
