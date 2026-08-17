@@ -71,13 +71,14 @@ while not all_reached_300million():
 
         # projections
         for projection in projections:
-            projections[projection] = (projections[projection] / 2) * 3
+            if projections[projection] < 300000000:
+                projections[projection] = (projections[projection] / 2) * 3
 
         # projections total
         projections_total = sum(projections.values())
 
     # PRINT
-    print(f"====> canzuk_nations(gen{gen_counter}): {round(projections_total):,}")
+    print(f"====> canzuk_nations(gen{gen_counter})")
     for projection in projections:
         print(f"{'✔ ' if projections[projection] >= 300000000 else '- '} {round(projections[projection]):,} in {projection}")
 
