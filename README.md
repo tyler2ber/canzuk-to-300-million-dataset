@@ -28,7 +28,7 @@ Here are the nations in CANZUK
 * UK
 
 ## Developmental achievements
-There are "developmental achievements" in multiple sectors
+There are multiple sectors for developmental achievements
 
 * **law:** judges/prosecutors/lawyers/cops for theft/fraud/violence
 * **property:** land/housing/items and business
@@ -39,6 +39,5 @@ There are "developmental achievements" in multiple sectors
 * **medical:** sanitation/treatment/emergency
 * **tech:** use/skilltraining/infrastructure
 
-Along the lines of history by settlers/residents (citizens) there's Settler Property Theory, or SPT, which is similar to yet distinct from settler-colonialism. More info on that can be found here:
+Historically speaking, areas in the USA weren't considered states until reaching both population milestone and developmental achievement. It's summarized in Settlerism, as Settler Property Theory (SPT), found here:
 https://docs.google.com/document/d/1HY_f2_q5IZrA1EyLss21L2W5vytYbSSvAqzO46vpFJ8/
- 
